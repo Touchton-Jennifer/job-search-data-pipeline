@@ -1,0 +1,25 @@
+metric_category,metric_name,value,description,calculation_method
+Pipeline_Health,total_applications,157,Total job applications tracked,Count of all records with status applied or higher
+Pipeline_Health,active_opportunities,23,Currently active opportunities,"Count of records with pipeline_status in [hot, warm, cooling]"
+Pipeline_Health,ghosted_opportunities,74,Opportunities with no response >30 days,Count of records with pipeline_status = ghosted
+Pipeline_Health,closed_opportunities,18,Completed processes (offers/rejections),Count of records with pipeline_status = closed
+Conversion_Metrics,interview_conversion_rate,18.7,Percentage leading to interviews,interviews / total_applications * 100
+Conversion_Metrics,offer_conversion_rate,4.2,Percentage of interviews leading to offers,offers / interviews * 100
+Conversion_Metrics,overall_success_rate,1.1,Percentage of applications leading to offers,offers / total_applications * 100
+Conversion_Metrics,response_rate,67.3,Percentage receiving any response,responded_records / total_applications * 100
+Company_Analysis,unique_companies,89,Distinct companies engaged,Count of unique company_name values
+Company_Analysis,top_company_engagement,Example Corp,Company with most interactions,Mode of company_name field
+Company_Analysis,companies_multiple_roles,12,Companies with multiple role applications,Count of companies with >1 role application
+Company_Analysis,avg_company_engagement,1.8,Average applications per company,total_applications / unique_companies
+Priority_Analysis,critical_priority_count,8,Opportunities requiring immediate attention,Count of records with priority_level = Critical
+Priority_Analysis,high_priority_count,15,High priority opportunities,Count of records with priority_level = High
+Priority_Analysis,avg_priority_score,62.3,Average priority score across all opportunities,Mean of priority_score field
+Priority_Analysis,priority_score_range,"25-88",Range of priority scores in dataset,Min and max of priority_score field
+Timeline_Analysis,avg_days_since_contact,24.6,Average days since last communication,Mean of days_since_contact field
+Timeline_Analysis,longest_silence,89,Maximum days without contact,Max of days_since_contact field
+Timeline_Analysis,recent_activity_count,12,Opportunities with activity in last 7 days,Count where days_since_contact <= 7
+Timeline_Analysis,stale_activity_count,31,Opportunities with no activity >21 days,Count where days_since_contact > 21
+Data_Quality,high_confidence_records,134,Records with high extraction confidence,Count where company_confidence >= 80 AND role_confidence >= 80
+Data_Quality,flagged_for_review,23,Records requiring manual validation,Count where requires_review = true
+Data_Quality,data_completeness_rate,85.4,Percentage of complete records,complete_records / total_records * 100
+Data_Quality,extraction_accuracy_rate,94.7,Estimated extraction accuracy,high_confidence_records / total_records * 100
